@@ -41,15 +41,13 @@ public class Main {
         System.out.println("================================================================================");
         System.out.println("SNACKS CHOSEN: ");
         showSnackChoices();
-        
+
         System.out.println("================================================================================");
     }
 
     /**
      * Prompts the user to enter a snack selection for each seat and saves it to
      * the {@code snacksServed} array.
-     *
-     * @param snacksServed
      */
     private static void enterSnackChoices() {
         // Uncomment this line to enter values while running.
@@ -68,6 +66,9 @@ public class Main {
         }
     }
 
+    /**
+     * Display the snack choices as a seating chart.
+     */
     private static void showSnackChoices() {
         for (int i = 0; i < numberOfRows; i++) {
             System.out.print("Row " + (i + 1) + " ");
