@@ -19,9 +19,13 @@ public class Main {
      */
     private static char[] seats = {'A', 'B', 'C', 'D', 'E', 'F'};
     /**
-     * The snacks offered to each seated passenger.
+     * The snacks offered to each passenger.
      */
     private static String[] snacksOffered = {"Pretzels", "Chips", "Mint"};
+    /**
+     * The snacks selected by each passenger.
+     */
+    private static String[][] snacksServed = new String[numberOfRows][seats.length];
 
     //==============================================================================
     // MAIN METHOD
@@ -30,26 +34,41 @@ public class Main {
         System.out.println("IN-FLIGHT SNACKS");
         System.out.println("================================================================================");
 
-        String[][] snacksServed = new String[numberOfRows][seats.length];
-
-        // Uncomment this line to enter values while running.
-        // Scanner input = new Scanner(System.in);
-
         System.out.println("ENTER PASSENGER SNACK CHOICES: ");
         System.out.println("================================================================================");
-        for (int i = 0; i < numberOfRows; i++) {
-            for (int j = 0; j < seats.length; j++) {
-                System.out.println("Seat " + (i + 1) + seats[j]);
-                System.out.println("Choose snack: " + Arrays.toString(snacksOffered));
-                // Uncomment this line to enter values while running.
-                // String snackSelected = input.nextLine();
-                String snackSelected = "X";
-                snacksServed[i][j] = snackSelected;
-            }
-        }
+        enterSnackChoices();
 
         System.out.println("================================================================================");
         System.out.println("SNACKS CHOSEN: ");
+        showSnackChoices();
+        
+        System.out.println("================================================================================");
+    }
+
+    /**
+     * Prompts the user to enter a snack selection for each seat and saves it to
+     * the {@code snacksServed} array.
+     *
+     * @param snacksServed
+     */
+    private static void enterSnackChoices() {
+        // Uncomment this line to enter values while running.
+        // Scanner input = new Scanner(System.in);
+        for (int i = 0; i < numberOfRows; i++) {
+            for (int j = 0; j < seats.length; j++) {
+                System.out.print("Seat " + (i + 1) + seats[j] + " choice ");
+                System.out.println(Arrays.toString(snacksOffered) + ": ");
+                // Uncomment this line to enter values while running.
+                // String snackSelected = input.nextLine();
+                // Comment this line to enter values while running.
+                String snackSelected = "X";
+                snacksServed[i][j] = snackSelected;
+            }
+            System.out.println("--------------------------------------------------------------------------------");
+        }
+    }
+
+    private static void showSnackChoices() {
         for (int i = 0; i < numberOfRows; i++) {
             System.out.print("Row " + (i + 1) + " ");
             for (int j = 0; j < seats.length; j++) {
